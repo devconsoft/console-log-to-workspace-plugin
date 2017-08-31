@@ -7,12 +7,16 @@ import hudson.model.Result;
 import hudson.model.Run;
 import java.io.IOException;
 import java.io.OutputStream;
+import hudson.EnvVars;
 
 public class ConsoleLogToWorkspace {
 
     public static boolean perform(Run<?, ?> build, FilePath workspace, TaskListener listener,
             boolean writeConsoleLog, String fileName, boolean blockOnAllOutput) {
         final OutputStream os;
+        final EnvVars env = build.getEnvironment(listener);
+        fileName=env.expand(fileName);
+
         try {
             if (writeConsoleLog) {
                 log("Writing console log to workspace file " + fileName + " started", listener);
