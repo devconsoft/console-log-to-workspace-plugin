@@ -35,7 +35,7 @@ public class ConsoleLogToWorkspaceBuildStep extends Builder implements SimpleBui
     }
 
     public BuildStepMonitor getRequiredMonitorService() {
-        return BuildStepMonitor.BUILD;
+        return BuildStepMonitor.NONE;
     }
 
     public String getFileName() {
