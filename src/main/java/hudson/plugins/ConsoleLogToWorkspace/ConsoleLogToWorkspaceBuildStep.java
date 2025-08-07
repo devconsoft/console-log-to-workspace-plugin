@@ -19,7 +19,7 @@ import org.kohsuke.stapler.QueryParameter;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.annotation.Nonnull;
+import edu.umd.cs.findbugs.annotations.NonNull;
 
 public class ConsoleLogToWorkspaceBuildStep extends Builder implements SimpleBuildStep {
 
@@ -51,8 +51,8 @@ public class ConsoleLogToWorkspaceBuildStep extends Builder implements SimpleBui
     }
 
     @Override
-    public void perform(@Nonnull Run<?, ?> build, @Nonnull FilePath workspace,
-            @Nonnull Launcher launcher, @Nonnull TaskListener listener) throws InterruptedException, IOException {
+    public void perform(@NonNull Run<?, ?> build, @NonNull FilePath workspace,
+            @NonNull Launcher launcher, @NonNull TaskListener listener) throws InterruptedException, IOException {
         ConsoleLogToWorkspace.perform(build, workspace, listener,
             writeConsoleLog, fileName, blockOnAllOutput);
     }
